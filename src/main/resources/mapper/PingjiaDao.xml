@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.dao.PingjiaDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.entity.PingjiaEntity" id="pingjiaMap">
+        <result property="zhanghao" column="zhanghao"/>
+        <result property="xingming" column="xingming"/>
+        <result property="xiaoshouzhanghao" column="xiaoshouzhanghao"/>
+        <result property="xiaoshouxingming" column="xiaoshouxingming"/>
+        <result property="pingfen" column="pingfen"/>
+    </resultMap>
+
+	<select id="selectListVO"
+		resultType="com.entity.vo.PingjiaVO" >
+		SELECT * FROM pingjia  pingjia         
+        <where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+	
+	<select id="selectVO"
+		resultType="com.entity.vo.PingjiaVO" >
+		SELECT  pingjia.* FROM pingjia  pingjia 	
+ 		<where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+
+    <select id="selectListView"
+		resultType="com.entity.view.PingjiaView" >
+
+		SELECT  pingjia.* FROM pingjia  pingjia 	        
+        <where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+	
+	<select id="selectView"
+		resultType="com.entity.view.PingjiaView" >
+		SELECT * FROM pingjia  pingjia <where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+	
+</mapper>
